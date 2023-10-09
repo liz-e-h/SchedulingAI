@@ -1,0 +1,29 @@
+Name:
+GameMaxTooManyGames
+
+Game slots:
+MO, 8:00, 2, 1
+MO, 9:00, 1, 0
+TU, 10:00, 3, 2
+
+Practice slots:
+
+Games:
+CSMA U11T2 DIV 01
+CMSA U17T1 DIV 01
+CMSA U09T1 DIV 01
+CMSA U14T2 DIV 02
+CMSA U08T1 DIV 01 
+CMSA U07T1 DIV 01
+CMSA U10T2 DIV 01
+
+Practices:
+
+Not compatible:
+
+Unwanted:
+
+Preferences:
+
+Pair: 
+

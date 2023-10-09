@@ -1,0 +1,24 @@
+Name:
+TwoGamesNotCompatible
+
+Game slots:
+MO, 14:00, 2, 0
+MO, 9:00, 1, 0
+
+Practice slots:
+
+Games:
+CSMA U11T2 DIV 01
+CMSA U10T2 DIV 01
+CMSA U07T1 DIV 01
+
+Practices:
+
+Not compatible:
+CMSA U11T2 DIV 01, CMSA U10T2 DIV 01
+
+Unwanted:
+
+Preferences:
+
+Pair: 
