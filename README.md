@@ -1,1 +1,2 @@
-# SchedulingAI
+# Scheduling AI
+
