@@ -33,7 +33,8 @@ cd SchedulingAI
 ```sh
 java Main filename w_{minfilled} w_{pref} w_{pair} w_{secdiff} pen_{gamemin} pen_{practicemin} pen_{notpaired} pen_{section}
 ```
-For example:
+where w values represents the weights for the hard constraints during $`Eval`$, and pen represents the penalties for soft constraints.
+<br>For example:
 ```sh
 java Main input.txt 1 1 1 1 1 1 1 1
 ```
