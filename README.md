@@ -1,4 +1,70 @@
 # Scheduling AI
+The scheduling problem for soccer games and practices in the City of Calgary is a complex task that involves various constraints, both hard and soft. To tackle this problem, the proposed approach combines two search models: a set-based genetic search and an integrated or-tree-based search.
+
+- Set-Based Genetic Search: This part of the approach focuses on optimizing soft constraints. Soft constraints are those that can be violated to some extent, but the goal is to minimize their violation. The set-based genetic search is a technique that leverages genetic algorithms to efficiently explore the solution space. Genetic algorithms are a type of heuristic search algorithm inspired by the process of natural selection and evolution.
+  - Population Generation: The genetic algorithm starts by creating a population of potential schedules, which are represented as sets of games and practices.
+  - Selection: Schedules are selected for reproduction based on their fitness with respect to soft constraints, such as minimizing travel time, optimizing field allocation, and accommodating team preferences.
+  - Crossover and Mutation: Genetic operations like crossover and mutation are applied to generate new schedules. Crossover combines elements from two parent schedules, while mutation introduces random changes.
+  - Fitness Evaluation: The fitness of each schedule is evaluated, taking into account soft constraints. The goal is to evolve schedules that better satisfy these constraints over generations.
+  - Termination: The genetic search continues for a set number of generations or until a termination condition is met.
+
+- Integrated Or-Tree-Based Search: Hard constraints are the ones that must be satisfied without exception. The or-tree-based search is integrated into the approach to efficiently generate random initial solutions that respect the hard constraints.
+  - Or-Tree-Based Search: An or-tree is a search tree that explores different options to satisfy hard constraints, such as assigning specific teams to specific fields on particular days and times.
+  - Randomized Initial Solutions: The or-tree-based search generates randomized solutions that comply with hard constraints, creating a starting point for the genetic search.
+  - Integration with Genetic Search: These hard-constraint-compliant solutions are then passed on to the set-based genetic search, which further optimizes them with respect to soft constraints.
+
+By integrating the or-tree-based search for generating initial solutions, the approach ensures that hard constraints are efficiently satisfied from the beginning. Then, the genetic search fine-tunes these solutions, optimizing them with respect to the softer constraints.
+
+This approach is well-suited for complex scheduling problems like soccer games and practices in the City of Calgary, as it provides a balance between handling hard constraints and optimizing soft constraints, ultimately aiming to generate schedules that are practical and efficient while satisfying the necessary requirements.
+
+## Getting Started
+### Prerequisites
+Java Development Kit (JDK): Your system should have Java 18 or above installed.
+### Installation
+Clone the repo
+```sh
+git clone https://github.com/liz-e-h/SchedulingAI.git
+```
+Navigate to the project directory
+```sh
+cd SchedulingAI
+```
+### Usage
+```sh
+java Main filename w_{minfilled} w_{pref} w_{pair} w_{secdiff} pen_{gamemin} pen_{practicemin} pen_{notpaired} pen_{section}
+```
+For example:
+```sh
+java Main input.txt 1 1 1 1 1 1 1 1
+```
+The general scheme of an input text file is as follows:
+>Name:<br>
+Example-name<br>
+Game slots:<br>
+Day, Start time, gamemax, gamemin<br>
+Practice slots:<br>
+Day, Start time, practicemax, practicemin<br>
+Games:<br>
+Game Identifier<br>
+Practices:<br>
+Practice Identifier<br>
+Not compatible:<br>
+Game Identifier, Game Identifier<br>
+Game Identifier, Practice Identifier<br>
+Practice Identifier, Practice Identifier<br>
+Unwanted:<br>
+Game Identifier, Slot day, Slot time<br>
+Practice Identifier, Slot day, Slot time<br>
+Preferences:<br>
+Slot day, Slot time, Game Identifier, Preference value<br>
+Slot day, Slot time, Practice Identifier, Preference value<br>
+Pair:<br>
+Game Identifier, Game Identifier<br>
+Game Identifier, Practice Identifier<br>
+Practice Identifier, Practice Identifier<br>
+Partial assignments:<br>
+Game Identifier, Slot day, Slot time<br>
+Practice Identifier, Slot day, Slot time<br>
 
 ## Search Probelm Description
 Overseeing soccer fields around the City of Calgary, we have to assign *Games* and *Practices* to weekly field time *Slots*.
