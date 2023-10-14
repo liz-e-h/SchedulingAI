@@ -46,3 +46,30 @@ Sometimes a league doesn’t book practices but instead generally creates open f
 <br />
 CMSA U12T1 DIV 01 **OPN 01**
 
+### Time Slots
+The available time slots depend on the day of the week and whether we look at *games* or *practices*.
+
+Mondays and Wednesdays, the slots available for games and practices are 8:00-9:00, 9:00-10:00, 10:00-11:00, 11:00-12:00, 12:00-13:00, 13:00-14:00, 14:00-15:00, 15:00-16:00, 16:00-17:00, 17:00-18:00, 18:00-19:00, 19:00-20:00 and 20:00-21:00. The same slots are available for *games* also on Fridays.
+
+The available time slots for Tuesdays and Thursdays for games are 8:00-9:30, 9:30-11:00, 11:00-12:30, 12:30-14:00, 14:00-15:30, 15:30-17:00, 17:00-18:30 and 18:30-20:00. For practices, the available time slots are the same on Tuesdays and Thursdays as previously given for Mondays and Wednesdays practices.
+
+The slots available for practices on Fridays are 8:00-10:00, 10:00-12:00, 12:00-14:00, 14:00-16:00, 16:00-18:00, 18:00-20:00.
+
+All slots beginning at 18:00 or later are called evening slots.
+
+Note that the fact that the slots for games and practices on Tuesdays and Thursdays are not following the same time scheme requires you to deal with time and how time
+slots may overlap. It also seems that this contradicts the general problem scheme, but it can be reformulated in terms of the general problem.
+
+Our City of Calgary problem has the following hard constraints:
+- If a division’s games (Ex. CMSA U12T1 DIV 01) are put into a slot on Mondays, then they must be put into the corresponding time slots on Wednesdays and Fridays. So, these three time slots are treated as one abstract slot, which allows us to see our Calgary problem as an instantiation of the general problem!
+- Similarly, if a division’s games are put into a slot on Tuesdays, then they must be put into the corresponding time slots on Thursdays.
+- If a practice (ex. CMSA U12T1 DIV 01 PRC 01) is put into a slot on Mondays, it must be put into the corresponding time slots on Wednesdays.
+- If a practice is put into a slot on Tuesdays, it must be put into the corresponding time slots on Thursdays.
+- Fridays are single practice slots and not linked with other days.
+- All divisions with a division number starting DIV 9 are evening divisions and must be scheduled into evening slots.
+- All games in all tiers of the U15/U16/U17/U19 level must be scheduled into non-overlapping time slots.
+- No games can be scheduled on Tuesdays 11:00-12:30 as a league wide meeting occurs weekly at this time for admin.
+- There are two special "game bookings" CMSA U12T1S and CMSA U13T1S that must be scheduled Tuesdays / Thursdays 18:00-19:00. CMSA U12T1S is not allowed to overlap with any practices/games of CMSA U12T1 and CMSA U13T1S is not allowed to overlap with any practices/games of CMSA U13T1. These two "game bookings" are a way of schedule special showcase tryouts series for these divisions’ players for selection to special provincial teams for Alberta Games.
+
+The City of Calgary also has the following soft constraints:
+- Different divisional games within a single age/tier group should be scheduled at different times. For each pair of divisions that is scheduled into the same slot, we add a penalty $`pen_{section}`$ to the Eval-value of an assignment *assign*. Ex. U12T1 DIV 01 and U12T1 DIV 02 should not be scheduled at same time slot, if possible, for a better Eval score.
