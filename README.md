@@ -73,3 +73,5 @@ Our City of Calgary problem has the following hard constraints:
 
 The City of Calgary also has the following soft constraints:
 - Different divisional games within a single age/tier group should be scheduled at different times. For each pair of divisions that is scheduled into the same slot, we add a penalty $`pen_{section}`$ to the Eval-value of an assignment *assign*. Ex. U12T1 DIV 01 and U12T1 DIV 02 should not be scheduled at same time slot, if possible, for a better Eval score.
+
+
